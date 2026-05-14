@@ -5,50 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ImpulseControl 支持</title>
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
+    /* 夜间模式主题变量（参考 shadcn 风格色调） */
+    :root{
+      --bg: #071029;          /* 页面背景深色 */
+      --surface: rgba(255,255,255,0.02); /* 卡片背景（轻微透明） */
+      --card-border: rgba(255,255,255,0.04);
+      --muted: #94a3b8;       /* 次要文字 */
+      --text: #e6eef8;        /* 主要文字 */
+      --accent: #60a5fa;      /* 链接 / 强调色 */
+      --glass-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      --radius: 14px;
+    }
+
+    /* 全局重置 + 布局 */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent 8%),
+                  radial-gradient(900px 400px at 90% 90%, rgba(99,102,241,0.045), transparent 6%),
+                  var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans SC", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
       line-height: 1.6;
-      color: #333;
     }
+
+    /* 容器：卡片化样式 */
+    .card {
+      width: 100%;
+      max-width: 720px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--glass-shadow);
+      border-radius: var(--radius);
+      padding: 36px;
+      box-sizing: border-box;
+      backdrop-filter: blur(6px) saturate(120%);
+    }
+
+    /* 标题与文字 */
     h1 {
-      color: #007AFF;
+      color: var(--accent);
       text-align: center;
+      margin: 0 0 8px 0;
+      font-size: 1.6rem;
+      letter-spacing: 0.2px;
     }
+
+    h2 {
+      color: #cfe8ff;
+      margin-top: 26px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    p {
+      color: var(--text);
+      margin: 0 0 12px 0;
+      font-size: 0.98rem;
+    }
+
+    ul {
+      margin: 8px 0 12px 1.2rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
     a {
-      color: #007AFF;
+      color: var(--accent);
       text-decoration: none;
+      transition: color .16s ease, text-decoration .12s ease;
     }
+
     a:hover {
       text-decoration: underline;
+      color: #7cc8ff;
     }
+
+    /* 小字号 footer */
     .footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #666;
+      margin-top: 28px;
+      font-size: 0.85rem;
+      color: var(--muted);
       text-align: center;
+    }
+
+    /* 响应式：在窄屏上减小内边距 */
+    @media (max-width: 420px) {
+      .card { padding: 20px; border-radius: 12px; }
+      h1 { font-size: 1.25rem; }
+    }
+
+    /* 可选：在支持的系统上自动切换到浅色（如果需要） */
+    @media (prefers-color-scheme: light) {
+      /* 保持夜间模式为默认，不自动变回亮色。
+         若希望在浅色系统下自动使用浅色主题，请在此处覆盖变量。 */
     }
   </style>
 </head>
 <body>
-  <h1>ImpulseControl 支持</h1>
-  <p>感谢你使用 <strong>ImpulseControl</strong>！</p>
-  
-  <h2>版本信息</h2>
-  <p>当前版本：1.0.0</p>
-  
-  <h2>遇到问题？</h2>
-  <p>如果你在使用 App 时遇到问题或有反馈，请通过以下方式联系我们：</p>
-  <ul>
-    <li>邮箱：<a href="mailto:your_email@example.com">feeline.wu@gmail.com</a></li>
-  </ul>
+  <main class="card" role="main">
+    <h1>ImpulseControl 支持</h1>
+    <p>感谢你使用 <strong>ImpulseControl</strong>！</p>
 
-  <p>我们会尽快回复你的问题，感谢你的支持！</p>
+    <h2>版本信息</h2>
+    <p>当前版本：1.0.0</p>
 
-  <div class="footer">
-    &copy; 2026 ImpulseControl
-  </div>
+    <h2>遇到问题？</h2>
+    <p>如果你在使用 App 时遇到问题或有反馈，请通过以下方式联系我们：</p>
+    <ul>
+      <li>邮箱：<a href="mailto:your_email@example.com">feeline.wu@gmail.com</a></li>
+    </ul>
+
+    <p>我们会尽快回复你的问题，感谢你的支持！</p>
+
+    <div class="footer">
+      &copy; 2026 ImpulseControl
+    </div>
+  </main>
 </body>
 </html>
