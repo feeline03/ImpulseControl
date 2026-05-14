@@ -7,12 +7,13 @@
 
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --sub: #6b7280;
-      --line: #e5e7eb;
-      --accent: #6366f1;
+      /* Night / dark theme colors (参考夜间配色) */
+      --bg: #0b1220;        /* 页面背景—深夜蓝 */
+      --card: #0f1724;      /* 卡片背景—更亮的夜间色 */
+      --text: #e6eef8;      /* 主要文字—浅色 */
+      --sub: #9fb0bf;       /* 次要文字—柔和的浅蓝灰 */
+      --line: rgba(255,255,255,0.06); /* 分隔线—低亮度 */
+      --accent: #7c3aed;    /* 强调色—紫罗兰 (参考 shadcn 主题风格) */
     }
 
     * {
@@ -38,15 +39,17 @@
       background: var(--card);
       border-radius: 24px;
       padding: 40px;
+      border: 1px solid rgba(255,255,255,0.03);
       box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.04),
-        0 2px 8px rgba(0, 0, 0, 0.03);
+        0 8px 30px rgba(2,6,23,0.6),
+        0 2px 8px rgba(2,6,23,0.5);
     }
 
     h1 {
       font-size: 36px;
       margin: 0 0 10px;
       letter-spacing: -0.02em;
+      color: var(--text);
     }
 
     .subtitle {
@@ -61,10 +64,12 @@
       font-size: 22px;
       border-left: 4px solid var(--accent);
       padding-left: 12px;
+      color: var(--text);
     }
 
     p {
       margin: 12px 0;
+      color: var(--text);
     }
 
     ul {
@@ -73,6 +78,7 @@
 
     li {
       margin: 8px 0;
+      color: var(--text);
     }
 
     .divider {
@@ -92,6 +98,10 @@
       color: var(--accent);
       text-decoration: none;
       font-weight: 600;
+    }
+
+    a.email:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 640px) {
